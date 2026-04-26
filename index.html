@@ -1,1 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORN Brand Guide — Orchestrating Rhythms of Nature</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* ORN Core Palette */
+            --orn-void: #0A0A0A;
+            --orn-night: #111111;
+            --orn-deep: #1A1A1A;
+            --orn-charcoal: #2A2A2A;
+            --orn-stone: #3A3A3A;
+            --orn-ash: #6B6B6B;
+            --orn-silver: #9A9A9A;
+            --orn-pearl: #C4C4C4;
+            --orn-cloud: #E8E8E8;
+            --orn-mist: #F2F2F2;
+            --orn-pure: #FFFFFF;
 
+            /* TYPOGRAPHY — Logo font is PRIMARY */
+            --font-primary: 'Montserrat', 'Futura', 'Helvetica Neue', Arial, sans-serif;
+            --font-poetic: 'Cormorant Garamond', Georgia, serif;
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            --space-2xl: 8rem;
+
+            /* Transitions */
+            --transition-slow: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            --transition-medium: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            --transition-fast: 0.2s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--orn-pure);
+            color: var(--orn-void);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: 400;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--orn-mist);
+            transition: var(--transition-medium);
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            color: var(--orn-void);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--orn-ash);
+            text-decoration: none;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: var(--orn-void);
+            transition: var(--transition-medium);
+        }
+
+        .nav-links a:hover { color: var(--orn-void); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--space-xs);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-2xl) var(--space-md);
+            background: var(--orn-void);
+            color: var(--orn-pure);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.02) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-logo {
+            width: 320px;
+            max-width: 80vw;
+            margin-bottom: var(--space-lg);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-logo svg { width: 100%; height: auto; }
+
+        /* Hero text now uses the PRIMARY font (Montserrat) for brand consistency */
+        .hero-tagline {
+            font-family: var(--font-primary);
+            font-size: clamp(1.25rem, 2.5vw, 2rem);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--orn-pearl);
+            margin-bottom: var(--space-sm);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-primary);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--orn-silver);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: var(--space-lg);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--orn-silver);
+            font-size: 0.6875rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            animation: breathe 4s ease-in-out infinite;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: var(--font-primary);
+            font-weight: 500;
+        }
+
+        @keyframes breathe {
+            0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+            50% { opacity: 1; transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-md);
+        }
+
+        .section-dark {
+            background: var(--orn-void);
+            color: var(--orn-pure);
+        }
+
+        .section-dark .section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header { margin-bottom: var(--space-xl); }
+
+        .section-number {
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--orn-silver);
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-dark .section-number { color: var(--orn-ash); }
+
+        /* Section titles now use PRIMARY font — same as logo */
+        .section-title {
+            font-family: var(--font-primary);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--orn-void);
+            letter-spacing: -0.02em;
+        }
+
+        .section-dark .section-title { color: var(--orn-pure); }
+
+        /* Poetic/italic moments still use Cormorant Garamond */
+        .section-intro {
+            font-family: var(--font-poetic);
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--orn-stone);
+            margin-bottom: var(--space-lg);
+            max-width: 700px;
+        }
+
+        .section-dark .section-intro { color: var(--orn-pearl); }
+
+        /* ===== GRID LAYOUTS ===== */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+        }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: var(--orn-mist);
+            border-radius: 2px;
+            padding: var(--space-lg);
+            transition: var(--transition-medium);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .card-dark {
+            background: var(--orn-night);
+            border: 1px solid var(--orn-charcoal);
+        }
+
+        .card-label {
+            font-family: var(--font-primary);
+            font-size: 0.6875rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--orn-silver);
+            margin-bottom: var(--space-sm);
+        }
+
+        /* Card titles now use PRIMARY font */
+        .card-title {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .card-body {
+            font-family: var(--font-primary);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--orn-ash);
+            font-weight: 400;
+        }
+
+        .section-dark .card-body { color: var(--orn-silver); }
+
+        /* ===== LOGO SECTION ===== */
+        .logo-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .logo-variant {
+            aspect-ratio: 16/9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-variant-dark { background: var(--orn-void); }
+        .logo-variant-light {
+            background: var(--orn-pure);
+            border: 1px solid var(--orn-cloud);
+        }
+
+        .logo-variant-label {
+            position: absolute;
+            bottom: var(--space-sm);
+            left: var(--space-sm);
+            font-family: var(--font-primary);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        .logo-variant-dark .logo-variant-label { color: var(--orn-silver); }
+        .logo-variant-light .logo-variant-label { color: var(--orn-ash); }
+
+        .logo-svg-large { width: 220px; height: auto; }
+
+        /* ===== COLOUR PALETTE ===== */
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: var(--space-sm);
+            margin-top: var(--space-lg);
+        }
+
+        .color-swatch {
+            aspect-ratio: 1;
+            border-radius: 2px;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .color-swatch:hover { transform: scale(1.05); }
+
+        .color-swatch::after {
+            content: attr(data-name) '\A' attr(data-hex);
+            white-space: pre;
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: var(--space-xs);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 0.6875rem;
+            font-family: var(--font-primary);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            opacity: 0;
+            transition: var(--transition-fast);
+            line-height: 1.4;
+        }
+
+        .color-swatch:hover::after { opacity: 1; }
+
+        .color-swatch-light::after {
+            background: rgba(255,255,255,0.9);
+            color: var(--orn-void);
+        }
+
+        /* ===== TYPOGRAPHY SHOWCASE ===== */
+        .type-specimen { margin-bottom: var(--space-xl); }
+
+        .type-name {
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--orn-silver);
+            margin-bottom: var(--space-md);
+        }
+
+        /* Primary font specimen — same as logo */
+        .type-sample-primary {
+            font-family: var(--font-primary);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.0;
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+        }
+
+        .type-sample-body {
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 600px;
+            font-weight: 400;
+        }
+
+        .type-weights {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .type-weight-row {
+            display: flex;
+            align-items: baseline;
+            gap: var(--space-md);
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--orn-mist);
+        }
+
+        .type-weight-label {
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--orn-silver);
+            min-width: 100px;
+            letter-spacing: 0.05em;
+        }
+
+        .type-weight-sample {
+            font-family: var(--font-primary);
+            font-size: 1.25rem;
+        }
+
+        /* Poetic font specimen */
+        .type-sample-poetic {
+            font-family: var(--font-poetic);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: var(--space-sm);
+        }
+
+        /* ===== VOICE & TONE ===== */
+        .voice-principle {
+            padding: var(--space-lg) 0;
+            border-bottom: 1px solid var(--orn-mist);
+        }
+
+        .voice-principle:last-child { border-bottom: none; }
+
+        .voice-header {
+            display: flex;
+            align-items: baseline;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+        }
+
+        .voice-number {
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            font-weight: 800;
+            color: var(--orn-silver);
+        }
+
+        .voice-title {
+            font-family: var(--font-primary);
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .voice-test {
+            font-family: var(--font-primary);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--orn-silver);
+            margin-bottom: var(--space-sm);
+            padding: var(--space-xs) var(--space-sm);
+            background: var(--orn-mist);
+            display: inline-block;
+            border-radius: 2px;
+            text-transform: uppercase;
+        }
+
+        .voice-description {
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--orn-ash);
+            max-width: 700px;
+            font-weight: 400;
+        }
+
+        .voice-example {
+            margin-top: var(--space-md);
+            padding: var(--space-md);
+            background: var(--orn-void);
+            color: var(--orn-pearl);
+            border-radius: 2px;
+            font-family: var(--font-poetic);
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* ===== PEM SECTION ===== */
+        .pem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .pem-card {
+            padding: var(--space-lg);
+            border: 1px solid var(--orn-cloud);
+            border-radius: 2px;
+            transition: var(--transition-medium);
+        }
+
+        .pem-card:hover {
+            border-color: var(--orn-void);
+            transform: translateY(-4px);
+        }
+
+        .pem-letter {
+            font-family: var(--font-primary);
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: var(--space-sm);
+            color: var(--orn-void);
+        }
+
+        .pem-title {
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pem-description {
+            font-family: var(--font-primary);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--orn-ash);
+            font-weight: 400;
+        }
+
+        /* ===== APPLICATIONS ===== */
+        .app-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .app-mockup {
+            aspect-ratio: 16/10;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: var(--space-lg);
+        }
+
+        .app-mockup-dark {
+            background: var(--orn-void);
+            color: var(--orn-pure);
+        }
+
+        .app-mockup-light {
+            background: var(--orn-pure);
+            color: var(--orn-void);
+            border: 1px solid var(--orn-cloud);
+        }
+
+        .app-mockup-mid {
+            background: var(--orn-charcoal);
+            color: var(--orn-pure);
+        }
+
+        .app-label {
+            position: absolute;
+            top: var(--space-sm);
+            left: var(--space-sm);
+            font-family: var(--font-primary);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        .app-content { text-align: center; }
+
+        .app-content h4 {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            letter-spacing: -0.01em;
+        }
+
+        .app-content p {
+            font-family: var(--font-primary);
+            font-size: 0.8125rem;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        /* ===== DO'S AND DON'TS ===== */
+        .dos-donts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .dos-donts-column h4 {
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid;
+        }
+
+        .dos-column h4 {
+            color: var(--orn-void);
+            border-color: var(--orn-void);
+        }
+
+        .donts-column h4 {
+            color: var(--orn-ash);
+            border-color: var(--orn-ash);
+        }
+
+        .rule-item {
+            display: flex;
+            gap: var(--space-sm);
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--orn-mist);
+            font-family: var(--font-primary);
+            font-size: 0.9375rem;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .rule-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            margin-top: -2px;
+        }
+
+        /* ===== DOWNLOAD SECTION ===== */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .download-card {
+            padding: var(--space-lg);
+            border: 1px solid var(--orn-cloud);
+            border-radius: 2px;
+            text-align: center;
+            transition: var(--transition-medium);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .download-card:hover {
+            border-color: var(--orn-void);
+            background: var(--orn-mist);
+        }
+
+        .download-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--space-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--orn-void);
+            color: var(--orn-pure);
+            border-radius: 2px;
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+
+        .download-title {
+            font-family: var(--font-primary);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            letter-spacing: -0.01em;
+        }
+
+        .download-meta {
+            font-family: var(--font-primary);
+            font-size: 0.8125rem;
+            color: var(--orn-silver);
+            font-weight: 400;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--orn-void);
+            color: var(--orn-silver);
+            padding: var(--space-2xl) var(--space-md) var(--space-lg);
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-brand {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            color: var(--orn-pure);
+            margin-bottom: var(--space-xs);
+            text-transform: uppercase;
+        }
+
+        .footer-tagline {
+            font-family: var(--font-primary);
+            font-size: 0.8125rem;
+            font-style: italic;
+            color: var(--orn-ash);
+            font-weight: 400;
+        }
+
+        .footer-right { text-align: right; }
+
+        .footer-version {
+            font-family: var(--font-primary);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--orn-stone);
+            margin-bottom: var(--space-xs);
+        }
+
+        .footer-date {
+            font-family: var(--font-primary);
+            font-size: 0.8125rem;
+            color: var(--orn-ash);
+            font-weight: 400;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .grid-2, .grid-3, .grid-4, .pem-grid, .palette-grid, .download-grid, .app-showcase, .logo-showcase, .dos-donts {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px; left: 0; right: 0;
+                background: rgba(255,255,255,0.98);
+                flex-direction: column;
+                padding: var(--space-md);
+                gap: var(--space-md);
+                border-bottom: 1px solid var(--orn-mist);
+            }
+
+            .nav-links.active { display: flex; }
+            .nav-mobile-toggle { display: block; }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+            .footer-right { text-align: left; }
+        }
+
+        /* ===== UTILITY ===== */
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--orn-void);
+            margin: var(--space-lg) 0;
+        }
+
+        .section-dark .divider { background: var(--orn-charcoal); }
+
+        .quote-block {
+            padding: var(--space-lg);
+            border-left: 3px solid var(--orn-void);
+            margin: var(--space-lg) 0;
+            font-family: var(--font-poetic);
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--orn-stone);
+            font-weight: 300;
+        }
+
+        .section-dark .quote-block {
+            border-color: var(--orn-charcoal);
+            color: var(--orn-pearl);
+        }
+
+        .spacer { height: var(--space-xl); }
+
+        /* Font usage badge */
+        .font-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--orn-void);
+            color: var(--orn-pure);
+            font-family: var(--font-primary);
+            font-size: 0.625rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            margin-bottom: var(--space-sm);
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">ORN</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#identity">Identity</a></li>
+                <li><a href="#logo">Logo</a></li>
+                <li><a href="#colour">Colour</a></li>
+                <li><a href="#typography">Typography</a></li>
+                <li><a href="#voice">Voice</a></li>
+                <li><a href="#pem">PEM</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#downloads">Downloads</a></li>
+            </ul>
+            <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <div class="hero-logo">
+            <svg viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg">
+                <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
+                      font-family="'Montserrat', sans-serif" 
+                      font-size="120" 
+                      font-weight="800" 
+                      letter-spacing="0.08em"
+                      fill="white">ORN</text>
+            </svg>
+        </div>
+        <p class="hero-tagline">Orchestrating Rhythms of Nature</p>
+        <p class="hero-subtitle">Brand Guide & Foundational Standards</p>
+
+        <a href="#identity" class="hero-scroll">
+            <span>Explore</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </a>
+    </section>
+
+    <!-- I. IDENTITY -->
+    <section class="section" id="identity">
+        <div class="section-header">
+            <p class="section-number">I. What ORN Means</p>
+            <h2 class="section-title">The name is the work.</h2>
+        </div>
+
+        <p class="section-intro">ORN stands for Orchestrating Rhythms of Nature. The name is not a tagline, not a branding device, and not a poetic flourish chosen after the fact. It is the most honest description of what the company actually does.</p>
+
+        <div class="grid-2">
+            <div class="card">
+                <p class="card-label">The Philosophy</p>
+                <h3 class="card-title">Nature Does Not Coordinate. Nature Coheres.</h3>
+                <p class="card-body">Nothing in nature coordinates. Everything in nature coheres. The parts share the same underlying truth, and alignment is not a problem to be solved — it is a property of the whole. ORN exists to bring the person back into coherence with the rhythm of their own inner life, the rhythm of the world outside them, and the rhythm of nature that holds them both.</p>
+            </div>
+            <div class="card">
+                <p class="card-label">The Promise</p>
+                <h3 class="card-title">You Don't Have to Move for Us to Move You.</h3>
+                <p class="card-body">Most of life is not movement. Most of life is attention. Most of the time, a person is sitting, waking, cooking, at a desk. And the rhythm is still playing — inside them, around them, through them. ORN's orchestration continues whether the body moves or not.</p>
+            </div>
+        </div>
+
+        <div class="quote-block">
+            "ORN is the thread between your inner life and the world. The world is already moving. You are already moving. Between these two movements, there was once a thread."
+        </div>
+    </section>
+
+    <!-- II. THE APPLE FRAME -->
+    <section class="section-dark">
+        <div class="section">
+            <div class="section-header">
+                <p class="section-number">II. The Apple Frame</p>
+                <h2 class="section-title">Why ORN is a category,<br>not a product.</h2>
+            </div>
+
+            <p class="section-intro">What Apple did for music, ORN does for travel — and beyond. Travel today is in the pre-Apple state of music. Every extraordinary experience on earth already exists. But everything is scattered. ORN is the same move applied to a different axis of human life.</p>
+
+            <div class="grid-3">
+                <div class="card card-dark">
+                    <p class="card-label">Launch One</p>
+                    <h3 class="card-title">The Catalog & Delivery</h3>
+                    <p class="card-body">The entire world of experience, suddenly legible, suddenly organized around the one axis that actually matters: how a person wants to feel. Plus the on-ground delivery layer that makes the catalog real.</p>
+                </div>
+                <div class="card card-dark">
+                    <p class="card-label">Launch Two</p>
+                    <h3 class="card-title">The Daily Rhythm</h3>
+                    <p class="card-body">The streaks, the hosts, the memory layer — once the brand has earned the right to be present in a person's life every day, not only on the days they travel.</p>
+                </div>
+                <div class="card card-dark">
+                    <p class="card-label">Launch Three</p>
+                    <h3 class="card-title">The Social Fabric</h3>
+                    <p class="card-body">The morning ritual, the visible orchestration, the lineage craft. The Sky Shelf and the Skyline Within — where moments become lights and arcs of becoming become constellations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- III. THE FOUR MOVES -->
+    <section class="section" id="moves">
+        <div class="section-header">
+            <p class="section-number">III. The Four Moves</p>
+            <h2 class="section-title">How ORN shows up<br>in a person's life.</h2>
+        </div>
+
+        <p class="section-intro">ORN does four things for a person, and these four things are the brand. Not features. Not modules. The four ways the orchestration becomes visible in a real life.</p>
+
+        <div class="grid-2">
+            <div class="card">
+                <p class="card-label">Move One</p>
+                <h3 class="card-title">ORN sees what is out there.</h3>
+                <p class="card-body">A billion ideas, organized not by place or catalog but by feeling. Every extraordinary experience on earth, ordered by the only axis that actually matters to a person: how they want to feel, what they want to remember, who they want to become.</p>
+            </div>
+            <div class="card">
+                <p class="card-label">Move Two</p>
+                <h3 class="card-title">ORN understands how you are feeling.</h3>
+                <p class="card-body">Most people cannot describe their feelings in words. They simply have them. ORN reads the feeling anyway, and the moment it does, it shows the person where else on the planet that same feeling is shaping, right now.</p>
+            </div>
+            <div class="card">
+                <p class="card-label">Move Three</p>
+                <h3 class="card-title">ORN keeps rhythm with you.</h3>
+                <p class="card-body">Through streaks and rituals. The ritual calendar, the hosts, the small daily acts of attention that make a life feel lived rather than scrolled. A person can go months without traveling, and ORN is still there, still tuning them to the world.</p>
+            </div>
+            <div class="card">
+                <p class="card-label">Move Four</p>
+                <h3 class="card-title">ORN carries your memory, as lineage.</h3>
+                <p class="card-body">A person's memories are not just their own. They are the beginning of something that can be passed down, shared into circles, handed to a child, held by a family across generations. The Sky Shelf and the Skyline Within are surfaces where moments become lights.</p>
+            </div>
+        </div>
+
+        <div class="quote-block">
+            "Four moves. One orchestra. One name. Lumen is the orchestra under the Sky — a system that simulates the human brain by modeling every human role as a coordinating reasoning unit."
+        </div>
+    </section>
+
+    <!-- IV. THE GESTURE AND THE SKY -->
+    <section class="section-dark">
+        <div class="section">
+            <div class="section-header">
+                <p class="section-number">IV. The Gesture and the Sky</p>
+                <h2 class="section-title">What the person ever does.<br>What ORN gives them back.</h2>
+            </div>
+
+            <p class="section-intro">For as long as humans have needed to orient themselves in the world, they have looked up. The sky was the first guide. What the sky has always done for humans — held them in orientation, through change, without asking — is what ORN is now doing on a human scale, for one life.</p>
+
+            <div class="grid-2">
+                <div class="card card-dark">
+                    <p class="card-label">The Surface</p>
+                    <h3 class="card-title">Your Sky</h3>
+                    <p class="card-body">A person's Sky grows as they live. It is not something built in a sitting. It is something that becomes theirs slowly, over months and years, the way a real sky becomes familiar to a person who has watched it long enough to know which star comes out first in the evening.</p>
+                </div>
+                <div class="card card-dark">
+                    <p class="card-label">The Gesture</p>
+                    <h3 class="card-title">The Emplet</h3>
+                    <p class="card-body">One word. One gesture. One way to be in rhythm. An Emplet is the smallest unit of attention a person can leave — a tap, a feeling, a line, a photograph, a breath marked, a moment noticed. The person plants marks. ORN holds them in coherence.</p>
+                </div>
+            </div>
+
+            <div class="quote-block">
+                "The person leaves Emplets. ORN orchestrates a life. Opening the Skyline Within is not a report. It is a recognition — the discovery that something has been forming, from the marks they have been leaving, the whole time."
+            </div>
+        </div>
+    </section>
+
+    <!-- V. HOW ORN SPEAKS -->
+    <section class="section" id="voice">
+        <div class="section-header">
+            <p class="section-number">V. How ORN Speaks, Looks, Moves</p>
+            <h2 class="section-title">The register of the orchestration,<br>expressed in voice and form.</h2>
+        </div>
+
+        <p class="section-intro">A brand is not a logo, a palette, or a tagline. A brand is the recognizable quality of presence a person feels when the service is near. The way ORN speaks, looks, and moves is not a communication strategy. It is the orchestration itself, expressed in a register the person can receive.</p>
+
+        <div class="voice-principle">
+            <div class="voice-header">
+                <span class="voice-number">01</span>
+                <h3 class="voice-title">ORN always invites. It never instructs.</h3>
+            </div>
+            <p class="voice-test">Test: does this sentence push the person, or open a door?</p>
+            <p class="voice-description">A travel app tells the user to search, to filter, to pick, to book. ORN does not tell. It offers. The difference between the two is the difference between being pressured and being held. A held person walks through a door when the rhythm is right. A pressured person resists.</p>
+            <div class="voice-example">
+                "Something quiet is forming in you. Let's see where in the world it is alive right now."
+            </div>
+        </div>
+
+        <div class="voice-principle">
+            <div class="voice-header">
+                <span class="voice-number">02</span>
+                <h3 class="voice-title">ORN responds to emotional rhythm, not to clicks.</h3>
+            </div>
+            <p class="voice-test">Test: is this interaction organized around what the person is feeling, or around what the screen needs them to do next?</p>
+            <p class="voice-description">Most digital products are optimized for click-through, session length, engagement metrics. ORN is optimized for rhythm-through — the quality of the person's inner tempo being honored by the surface they are on. When the rhythm says rest, ORN rests. When the rhythm says reach, ORN reaches.</p>
+            <div class="voice-example">
+                "It has been a while. No need to go anywhere. Sit with this for a minute — there is something for you here."
+            </div>
+        </div>
+
+        <div class="voice-principle">
+            <div class="voice-header">
+                <span class="voice-number">03</span>
+                <h3 class="voice-title">ORN holds stillness and motion equally.</h3>
+            </div>
+            <p class="voice-test">Test: is this moment honoring the fact that a life is not only lived in movement?</p>
+            <p class="voice-description">Most services treat stillness as the absence of value — the gaps between engagements. ORN treats stillness as its own texture, equally part of the rhythm. A quiet Wednesday evening, a month of not traveling, a season of inward turning — these are not interruptions in the orchestration. They are movements within it.</p>
+            <div class="voice-example">
+                "A missed day is just silence. A good day is just one you remembered. A great day is one where you felt something, and kept it."
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGO SECTION -->
+    <section class="section" id="logo">
+        <div class="section-header">
+            <p class="section-number">Visual Identity</p>
+            <h2 class="section-title">The ORN Logo</h2>
+        </div>
+
+        <p class="section-intro">The ORN wordmark is set in a bold, geometric sans-serif — clean, modern, and unadorned. It carries the weight of the name without decoration. The letterforms are spaced with intention, creating a sense of measured breath between each character.</p>
+
+        <div class="logo-showcase">
+            <div class="logo-variant logo-variant-dark">
+                <svg class="logo-svg-large" viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg">
+                    <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
+                          font-family="'Montserrat', sans-serif" 
+                          font-size="120" 
+                          font-weight="800" 
+                          letter-spacing="0.08em"
+                          fill="white">ORN</text>
+                </svg>
+                <span class="logo-variant-label">Primary — Dark Ground</span>
+            </div>
+            <div class="logo-variant logo-variant-light">
+                <svg class="logo-svg-large" viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg">
+                    <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
+                          font-family="'Montserrat', sans-serif" 
+                          font-size="120" 
+                          font-weight="800" 
+                          letter-spacing="0.08em"
+                          fill="#0A0A0A">ORN</text>
+                </svg>
+                <span class="logo-variant-label">Secondary — Light Ground</span>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="dos-donts">
+            <div class="dos-donts-column dos-column">
+                <h4>Do</h4>
+                <div class="rule-item">
+                    <span class="rule-icon">✓</span>
+                    <span>Allow generous clear space around the mark — minimum height of the "O" on all sides</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">✓</span>
+                    <span>Use the dark version on light backgrounds, light version on dark backgrounds</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">✓</span>
+                    <span>Scale proportionally — never distort the letterforms</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">✓</span>
+                    <span>Centre the mark with confidence — it is designed to hold space</span>
+                </div>
+            </div>
+            <div class="dos-donts-column donts-column">
+                <h4>Don't</h4>
+                <div class="rule-item">
+                    <span class="rule-icon">✕</span>
+                    <span>Do not add effects — no shadows, gradients, outlines, or 3D treatments</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">✕</span>
+                    <span>Do not change the typeface or redraw the letterforms</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">✕</span>
+                    <span>Do not place the dark logo on dark backgrounds or light on light</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">✕</span>
+                    <span>Do not crowd the mark with other elements — give it room to breathe</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLOUR PALETTE -->
+    <section class="section" id="colour">
+        <div class="section-header">
+            <p class="section-number">Colour System</p>
+            <h2 class="section-title">The ORN Palette</h2>
+        </div>
+
+        <p class="section-intro">ORN's colour world is drawn from the sky at night — dark, generous, and luminous. Space is given. Light emerges from quiet. Nothing competes for the eye. The palette moves from absolute void through charcoal, ash, and silver to pure light.</p>
+
+        <div class="palette-grid">
+            <div class="color-swatch" style="background: #0A0A0A;" data-name="ORN Void" data-hex="#0A0A0A"></div>
+            <div class="color-swatch" style="background: #111111;" data-name="ORN Night" data-hex="#111111"></div>
+            <div class="color-swatch" style="background: #1A1A1A;" data-name="ORN Deep" data-hex="#1A1A1A"></div>
+            <div class="color-swatch" style="background: #2A2A2A;" data-name="ORN Charcoal" data-hex="#2A2A2A"></div>
+            <div class="color-swatch" style="background: #3A3A3A;" data-name="ORN Stone" data-hex="#3A3A3A"></div>
+            <div class="color-swatch" style="background: #6B6B6B;" data-name="ORN Ash" data-hex="#6B6B6B"></div>
+            <div class="color-swatch" style="background: #9A9A9A;" data-name="ORN Silver" data-hex="#9A9A9A"></div>
+            <div class="color-swatch" style="background: #C4C4C4;" data-name="ORN Pearl" data-hex="#C4C4C4"></div>
+            <div class="color-swatch color-swatch-light" style="background: #E8E8E8;" data-name="ORN Cloud" data-hex="#E8E8E8"></div>
+            <div class="color-swatch color-swatch-light" style="background: #F2F2F2;" data-name="ORN Mist" data-hex="#F2F2F2"></div>
+            <div class="color-swatch color-swatch-light" style="background: #F5F5F5;" data-name="ORN Glow" data-hex="#F5F5F5"></div>
+            <div class="color-swatch color-swatch-light" style="background: #FFFFFF; border: 1px solid #E8E8E8;" data-name="ORN Pure" data-hex="#FFFFFF"></div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="grid-2">
+            <div class="card">
+                <p class="card-label">Primary Pairing</p>
+                <h3 class="card-title">Void on Pure</h3>
+                <p class="card-body">The signature pairing: absolute black on absolute white. Used for the logo, primary headlines, and moments of highest contrast. This is the cleanest expression of the brand.</p>
+            </div>
+            <div class="card">
+                <p class="card-label">Atmospheric Pairing</p>
+                <h3 class="card-title">Pearl on Night</h3>
+                <p class="card-body">For immersive, emotional moments — the dark ground with soft light text. Used for hero sections, the Sky interface, and anywhere the brand needs to hold space rather than claim it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TYPOGRAPHY -->
+    <section class="section" id="typography">
+        <div class="section-header">
+            <p class="section-number">Typography</p>
+            <h2 class="section-title">The ORN Type System</h2>
+        </div>
+
+        <p class="section-intro">Two typefaces carry the voice of ORN: the primary geometric sans-serif — the same family as the logo — for clarity, structure, and the everyday; and a refined serif for moments of poetry, reflection, and the italic voice.</p>
+
+        <div class="type-specimen">
+            <span class="font-badge">Primary — Same as Logo</span>
+            <p class="type-name">Montserrat — The ORN Voice</p>
+            <p class="type-sample-primary">Orchestrating<br>Rhythms of Nature</p>
+            <div class="type-weights">
+                <div class="type-weight-row">
+                    <span class="type-weight-label">Light 300</span>
+                    <span class="type-weight-sample" style="font-weight: 300;">The thread between your inner life and the world.</span>
+                </div>
+                <div class="type-weight-row">
+                    <span class="type-weight-label">Regular 400</span>
+                    <span class="type-weight-sample" style="font-weight: 400;">Every day, ORN takes you into the world.</span>
+                </div>
+                <div class="type-weight-row">
+                    <span class="type-weight-label">Medium 500</span>
+                    <span class="type-weight-sample" style="font-weight: 500;">Navigation, labels, and interface elements.</span>
+                </div>
+                <div class="type-weight-row">
+                    <span class="type-weight-label">SemiBold 600</span>
+                    <span class="type-weight-sample" style="font-weight: 600;">Headlines and section titles.</span>
+                </div>
+                <div class="type-weight-row">
+                    <span class="type-weight-label">Bold 700</span>
+                    <span class="type-weight-sample" style="font-weight: 700;">Primary headlines and emphasis.</span>
+                </div>
+                <div class="type-weight-row">
+                    <span class="type-weight-label">ExtraBold 800</span>
+                    <span class="type-weight-sample" style="font-weight: 800;">The ORN wordmark and hero statements.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="type-specimen">
+            <span class="font-badge">Poetic — For Italic Moments</span>
+            <p class="type-name">Cormorant Garamond — Reflection & Poetry</p>
+            <p class="type-sample-poetic">The voice is cinematic, gentle, and unhurried. It speaks the way a trusted person speaks when they have nothing to prove.</p>
+            <div class="type-weights">
+                <div class="type-weight-row">
+                    <span class="type-weight-label">Light 300 Italic</span>
+                    <span class="type-weight-sample" style="font-family: var(--font-poetic); font-weight: 300; font-style: italic;">Quotations, poetic intros, and emotional cadence.</span>
+                </div>
+                <div class="type-weight-row">
+                    <span class="type-weight-label">Regular 400 Italic</span>
+                    <span class="type-weight-sample" style="font-family: var(--font-poetic); font-weight: 400; font-style: italic;">Voice examples and brand storytelling.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: var(--space-lg);">
+            <p class="card-label">Font Usage Rule</p>
+            <h3 class="card-title">One Voice, Two Registers</h3>
+            <p class="card-body"><strong>Montserrat (Primary)</strong> is used for all headlines, navigation, body text, labels, cards, and interface elements. This is the brand's everyday voice — the same geometric sans-serif that appears in the logo. <strong>Cormorant Garamond (Poetic)</strong> is reserved exclusively for italic moments: quotations from the Foundational Chapter, poetic intros, voice examples, and anywhere the brand needs to shift into reflection. The two never compete — the serif only appears when the moment calls for it.</p>
+        </div>
+    </section>
+
+    <!-- VI. PEM MANIFESTO -->
+    <section class="section-dark" id="pem">
+        <div class="section">
+            <div class="section-header">
+                <p class="section-number">VI. The PEM Manifesto</p>
+                <h2 class="section-title">How the organization becomes<br>what it orchestrates.</h2>
+            </div>
+
+            <p class="section-intro">A company is not a machine. It is a living system, carried inside the people who work within it. What a company tolerates in itself becomes, over time, what it offers the world. The inside and the outside are one rhythm.</p>
+
+            <div class="quote-block">
+                "To scale ORN is to scale coherence, not coordination. Nature does not coordinate. Nature is coherent."
+            </div>
+
+            <div class="pem-grid">
+                <div class="pem-card">
+                    <div class="pem-letter">P</div>
+                    <p class="pem-title">Possible</p>
+                    <p class="pem-description">We make the promise happen. A 3 a.m. pickup in Paris. A surprise dinner on a cliff in Amalfi with forty-eight hours' notice. The discipline of P is to refuse the soft no — to ask not whether something can be done, but how it will be done.</p>
+                </div>
+                <div class="pem-card">
+                    <div class="pem-letter">E</div>
+                    <p class="pem-title">Enjoyable</p>
+                    <p class="pem-description">The journey is lived well, not just delivered. Nothing in the journey requires the person to chase, repeat themselves, or wait without information. The standard is not the absence of problems but the quality of the human experience as the journey unfolds.</p>
+                </div>
+                <div class="pem-card">
+                    <div class="pem-letter">M</div>
+                    <p class="pem-title">Memorable</p>
+                    <p class="pem-description">Something stays after the bags are unpacked. A handwritten card on the cliff at dinner. A wool blanket and a flask of tea waiting at 2 a.m. before the balloon ride. M is what survives the trip — the moment a person tells someone else, weeks or years later, without being asked.</p>
+                </div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="quote-block">
+                "Is it Possible? Is it Enjoyable? Will it be Memorable? If yes, we let it fly. If not, we keep working."
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="card card-dark" style="text-align: center;">
+                <p class="card-label" style="text-align: center;">The Highest Ambition</p>
+                <h3 class="card-title" style="font-size: 1.75rem; text-align: center;">Build like one person.<br>Hold like a family.<br>Move like nature.</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPLICATIONS -->
+    <section class="section" id="applications">
+        <div class="section-header">
+            <p class="section-number">Applications</p>
+            <h2 class="section-title">ORN in the World</h2>
+        </div>
+
+        <p class="section-intro">The brand must hold its quality across every surface it touches — from the app interface to the printed card, from the email signature to the hotel welcome note. These principles apply everywhere.</p>
+
+        <div class="app-showcase">
+            <div class="app-mockup app-mockup-dark">
+                <span class="app-label">Digital — The Sky</span>
+                <div class="app-content">
+                    <h4>Your Sky</h4>
+                    <p>Dark interface, luminous content<br>Space given. Light emerges from quiet.</p>
+                </div>
+            </div>
+            <div class="app-mockup app-mockup-light">
+                <span class="app-label">Digital — Light Mode</span>
+                <div class="app-content">
+                    <h4>Clean Documentation</h4>
+                    <p>Void on Pure for clarity<br>Maximum contrast, maximum breath.</p>
+                </div>
+            </div>
+            <div class="app-mockup app-mockup-mid">
+                <span class="app-label">Print — Stationery</span>
+                <div class="app-content">
+                    <h4>ORN Letterhead</h4>
+                    <p>Charcoal ground, pearl text<br>Weight and elegance in physical form.</p>
+                </div>
+            </div>
+            <div class="app-mockup app-mockup-dark">
+                <span class="app-label">Environment — Signage</span>
+                <div class="app-content">
+                    <h4>Wayfinding</h4>
+                    <p>Night ground, pure illumination<br>The sky as navigation, inherited.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOWNLOADS -->
+    <section class="section" id="downloads">
+        <div class="section-header">
+            <p class="section-number">Assets</p>
+            <h2 class="section-title">Brand Assets</h2>
+        </div>
+
+        <p class="section-intro">Download the core brand files for use across all ORN materials. All files are provided in standard formats for maximum compatibility.</p>
+
+        <div class="download-grid">
+            <div class="download-card">
+                <div class="download-icon">SVG</div>
+                <h4 class="download-title">ORN Logo — Dark</h4>
+                <p class="download-meta">Black background, white wordmark<br>Vector format, infinitely scalable</p>
+            </div>
+            <div class="download-card">
+                <div class="download-icon">SVG</div>
+                <h4 class="download-title">ORN Logo — Light</h4>
+                <p class="download-meta">White background, black wordmark<br>Vector format, infinitely scalable</p>
+            </div>
+            <div class="download-card">
+                <div class="download-icon">PNG</div>
+                <h4 class="download-title">Logo Kit</h4>
+                <p class="download-meta">High-resolution raster exports<br>Multiple sizes for immediate use</p>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="download-grid">
+            <div class="download-card">
+                <div class="download-icon">CSS</div>
+                <h4 class="download-title">Design Tokens</h4>
+                <p class="download-meta">Colour variables, spacing scale<br>Typography stack, transitions</p>
+            </div>
+            <div class="download-card">
+                <div class="download-icon">PDF</div>
+                <h4 class="download-title">Brand Guide</h4>
+                <p class="download-meta">Complete guide for print<br>Share with partners and agencies</p>
+            </div>
+            <div class="download-card">
+                <div class="download-icon">HTML</div>
+                <h4 class="download-title">This Page</h4>
+                <p class="download-meta">Source code for this guide<br>Deploy on GitHub Pages</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <p class="footer-brand">ORN</p>
+                <p class="footer-tagline">Orchestrating Rhythms of Nature</p>
+            </div>
+            <div class="footer-right">
+                <p class="footer-version">Brand Guide v1.0</p>
+                <p class="footer-date">ORN Foundational Chapter — 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Nav background on scroll
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 1px 20px rgba(0,0,0,0.06)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Copy hex codes on click
+        document.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                const hex = swatch.getAttribute('data-hex');
+                navigator.clipboard.writeText(hex).then(() => {
+                    const original = swatch.getAttribute('data-name');
+                    swatch.setAttribute('data-name', 'Copied!');
+                    setTimeout(() => {
+                        swatch.setAttribute('data-name', original);
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
